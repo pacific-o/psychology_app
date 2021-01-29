@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 
 
 const SideNav = (props) => {
@@ -11,11 +11,11 @@ const SideNav = (props) => {
         </div>
         <div className="side-links p-h">
             <ul>
-                <li><Link to={`/dashboard`}>داشبورد</Link></li>
-                <li><Link to={`/dashboard/MyTests`}>آزمون های من</Link></li>
-                <li><Link to={`/dashboard/MyProfile`}>ویرایش پروفایل</Link></li>
-                <li><Link to={`/dashboard/TestsList`}>آزمون های سایت</Link></li>
-                <li><Link to={`/dashboard/transaction`}>تراکنش مالی</Link></li>
+                <li><NavLink to={`/dashboard`} activeStyle={{fontWeight: "bold",color: "red"}}>داشبورد</NavLink></li>
+                <li><NavLink to={`/dashboard/MyTests`} activeStyle={{fontWeight: "bold",color: "red"}}>آزمون های من</NavLink></li>
+                <li><NavLink to={`/dashboard/MyProfile`} activeStyle={{fontWeight: "bold",color: "red"}}>ویرایش پروفایل</NavLink></li>
+                <li><NavLink to={`/dashboard/TestsList`} activeStyle={{fontWeight: "bold",color: "red"}}>آزمون های سایت</NavLink></li>
+                <li><NavLink to={`/dashboard/transaction`} activeStyle={{fontWeight: "bold",color: "red"}}>تراکنش مالی</NavLink></li>
                 <li><Link to={`/`}>خروج</Link></li>
             </ul>
         </div>

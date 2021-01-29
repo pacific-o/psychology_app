@@ -5,14 +5,15 @@ import Reset from './components/Reset';
 import Register from './components/Register';
 import Footer from './components/Footer';
 import Dashboard from './components/Dashboard';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { Provider } from 'react-redux';
-//import store from './Redux/store';
+import store from './Redux/store';
 
 import './App.css';
 
 function App() {
   return (
+    <Provider store={store}>
       <Router>
         <div className="App">
           <Header />
@@ -24,7 +25,7 @@ function App() {
                <Reset />
             </Route>
             <Route path="/register">
-              <Register />
+               <Register />
             </Route>
             <Route path="/dashboard">
               <Dashboard />
@@ -33,6 +34,7 @@ function App() {
           <Footer />
         </div>
       </Router>  
+    </Provider>
   );
 }
 

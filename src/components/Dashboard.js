@@ -11,31 +11,33 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const Dashboard = (props) => {
   return (
-    <div className="dash-container container">
-        <div className="dashContent">
-            <DashboardHeader />
-            <Switch>
-                <Route exact path="/dashboard">
-                    <DashInfo />
-                </Route>
-                <Route path="/dashboard/MyTests">
-                    <MyTests />
-                </Route>
-                <Route path="/dashboard/MyProfile">
-                    <MyProfile />
-                </Route>
-                <Route path="/dashboard/TestsList">
-                    <TestsList />
-                </Route>
-                <Route path="/dashboard/transaction">
-                    <Transaction />
-                </Route>
-            </Switch>
-        </div>
-        <aside>
-            <SideNav />
-        </aside>
-    </div>
+       <Router>
+            <div className="dash-container container">
+                <div className="dashContent">
+                        <DashboardHeader />
+                    <Switch>
+                        <Route exact path="/dashboard">
+                           <DashInfo />
+                        </Route>
+                        <Route path="/dashboard/MyTests">
+                            <MyTests />
+                        </Route>
+                        <Route path="/dashboard/MyProfile">
+                            <MyProfile />
+                        </Route>
+                        <Route path="/dashboard/TestsList">
+                            <TestsList />
+                        </Route>
+                        <Route path="/dashboard/transaction">
+                            <Transaction />
+                        </Route>
+                   </Switch>
+                </div>
+                <aside>
+                    <SideNav />
+                </aside>
+            </div>
+       </Router>
   )
 }
 

@@ -1,7 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+
+
 const Login = (props) => {
+
   return (
     <div className="account p-h mt-h-2">
       <div className="account-container">
@@ -23,7 +26,7 @@ const Login = (props) => {
         </div>
         <div className="register-link mt-h-2">
           <p>کاربر جدید هستید ؟</p>
-          <Link to={`/register`}>ثبت نام کنید!</Link>  
+          <Link to="/register">ثبت نام کنید!</Link>
         </div>
       </div>
     </div>
