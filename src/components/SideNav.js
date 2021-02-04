@@ -11,11 +11,10 @@ const SideNav = (props) => {
         </div>
         <div className="side-links p-h">
             <ul>
-                <li><NavLink to={`/dashboard`} activeStyle={{fontWeight: "bold",color: "red"}}>داشبورد</NavLink></li>
-                <li><NavLink to={`/dashboard/MyTests`} activeStyle={{fontWeight: "bold",color: "red"}}>آزمون های من</NavLink></li>
-                <li><NavLink to={`/dashboard/MyProfile`} activeStyle={{fontWeight: "bold",color: "red"}}>ویرایش پروفایل</NavLink></li>
-                <li><NavLink to={`/dashboard/TestsList`} activeStyle={{fontWeight: "bold",color: "red"}}>آزمون های سایت</NavLink></li>
-                <li><NavLink to={`/dashboard/transaction`} activeStyle={{fontWeight: "bold",color: "red"}}>تراکنش مالی</NavLink></li>
+                <li><NavLink to={`/dashboard`} activeStyle={{fontWeight: "bold",color: "#ffb142"}}>داشبورد</NavLink></li>
+                <li><NavLink to={`/dashboard/MyTests`} activeStyle={{fontWeight: "bold",color: "#ffb142"}}>آزمون های من</NavLink></li>
+                <li><NavLink to={`/dashboard/MyProfile`} activeStyle={{fontWeight: "bold",color: "#ffb142"}}>ویرایش پروفایل</NavLink></li>
+                <li><NavLink to={`/dashboard/transaction`} activeStyle={{fontWeight: "bold",color: "#ffb142"}}>تراکنش مالی</NavLink></li>
                 <li><Link to={`/`}>خروج</Link></li>
             </ul>
         </div>

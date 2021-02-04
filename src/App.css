@@ -158,7 +158,7 @@ header {
 
 aside {
     width: 250px;
-    height: 100vh;
+    min-height: 100vh;
     background-color: var(--side-bg);
     position: absolute;
     right: 0;
@@ -299,6 +299,104 @@ input[type="radio"] {
   width: 50px;
   margin-left: 20px; 
 }
+
+.assess-info-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+}
+
+.assess-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.btn-info , .btn-danger {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 6px
+}
+
+.btn-info {
+  background-color: #34ace0
+}
+
+.btn-danger {
+  background-color: #ff5252;
+  margin-left: 40px
+}
+
+.buy-btn {
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+  background-color: #ffb142;
+  border-radius: 6px
+} 
+
+.cards-container {
+    width: 520px;
+    margin: 100px auto;
+    overflow: hidden;
+}
+
+.cards {
+    width: 520px;
+    height: 200px;
+    display: grid;
+    align-items: center;
+    transform: translateX(0px);
+    transition: transform 1s;
+}
+
+.card {
+    width: 520px;
+    height: 100%;
+    position: relative;
+    background-color: #ffb142;
+    border: 1px solid black;
+    border-radius: 6px;
+    transition: transform .5s;
+}
+
+.card p {
+    text-align: center;
+    padding: 10px;
+}
+
+.card .answer {
+  background-color: #ccae62;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(88px);
+  border-radius: 6px;
+}
+
+.answer p {
+  padding: 0
+}
+
+.answer input {
+    display: inline-block;
+    width: 20px;
+    margin-left: 10px;
+}
+
+.card-navigation {
+  text-align: center;
+}
+
+.card-navigation span {
+  margin: 10px 5px;
+  font-size: 18px
+}
+
+.assess-info img {
+  width: 200px
+}
+
 
 
 

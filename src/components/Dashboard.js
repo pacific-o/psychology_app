@@ -6,12 +6,11 @@ import MyTests from './MyTests';
 import MyProfile from './MyProfile';
 import TestsList from './TestsList';
 import Transaction from './Transaction';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 
 const Dashboard = (props) => {
   return (
-       <Router>
             <div className="dash-container container">
                 <div className="dashContent">
                         <DashboardHeader />
@@ -25,7 +24,7 @@ const Dashboard = (props) => {
                         <Route path="/dashboard/MyProfile">
                             <MyProfile />
                         </Route>
-                        <Route path="/dashboard/TestsList">
+                        <Route path="/dashboard/Test/:name">
                             <TestsList />
                         </Route>
                         <Route path="/dashboard/transaction">
@@ -37,7 +36,6 @@ const Dashboard = (props) => {
                     <SideNav />
                 </aside>
             </div>
-       </Router>
   )
 }
 
