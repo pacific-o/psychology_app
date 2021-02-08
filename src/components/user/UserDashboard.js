@@ -1,22 +1,22 @@
 import React from 'react';
-import DashboardHeader from './DashboardHeader';
-import SideNav from './SideNav';
-import DashInfo from './DashInfo';
-import MyTests from './MyTests';
-import MyProfile from './MyProfile';
-import TestsList from './TestsList';
-import Transaction from './Transaction';
+import DashboardHeader from '../public/DashboardHeader';
+import UserSideNav from './UserSideNav';
+import UserDashInfo from './UserDashInfo';
+import MyTests from '../public/MyTests';
+import MyProfile from '../public/MyProfile';
+import Test from '../public/Test';
+import Transaction from '../public/Transaction';
 import { Route, Switch } from "react-router-dom";
 
 
-const Dashboard = (props) => {
+const UserDashboard = (props) => {
   return (
             <div className="dash-container container">
                 <div className="dashContent">
-                        <DashboardHeader />
+                    <DashboardHeader />
                     <Switch>
                         <Route exact path="/dashboard">
-                           <DashInfo />
+                           <UserDashInfo />
                         </Route>
                         <Route path="/dashboard/MyTests">
                             <MyTests />
@@ -24,8 +24,8 @@ const Dashboard = (props) => {
                         <Route path="/dashboard/MyProfile">
                             <MyProfile />
                         </Route>
-                        <Route path="/dashboard/Test/:name">
-                            <TestsList />
+                        <Route path="/dashboard/Test/:id/name">
+                            <Test />
                         </Route>
                         <Route path="/dashboard/transaction">
                             <Transaction />
@@ -33,10 +33,10 @@ const Dashboard = (props) => {
                    </Switch>
                 </div>
                 <aside>
-                    <SideNav />
+                    <UserSideNav />
                 </aside>
             </div>
   )
 }
 
-export default Dashboard;
+export default UserDashboard;

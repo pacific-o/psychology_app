@@ -2,7 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {useState} from 'react';
-import { checkPass } from '../Redux';
+import { checkPass } from '../../Redux';
+
 
 const Register = (props) => {
     const [name, setName] = useState("");

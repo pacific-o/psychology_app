@@ -1,5 +1,5 @@
 import React from 'react';
-import edit from './image/2.png';
+import edit from '../image/2.png';
 
 
 const MyProfile = (props) => {

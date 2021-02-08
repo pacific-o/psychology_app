@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './image/logo.png';
+import logo from '../image/logo.png';
 import { Link } from "react-router-dom";
 
 const Header = (props) => {
@@ -11,15 +11,6 @@ const Header = (props) => {
             <div className="logo">
                 <Link to="/"><img src={logo} alt="logo" /></Link>
             </div>     
-            <div className="header-items">
-                <ul className="header-links">
-                    <li><Link>صفحه اصلی</Link></li>
-                    <li><Link>وبلاگ</Link></li>
-                    <li><Link>ثبت نام</Link></li>
-                    <li><Link>درباره ما</Link></li>
-                    <li><Link>تماس با ما</Link></li>
-                </ul>
-            </div>
             <div className="side-menu">
                 <p><i className="fas fa-bars"></i></p>
             </div>

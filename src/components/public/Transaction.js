@@ -1,5 +1,5 @@
 import React from 'react';
-import assess from './image/assess.png';
+import assess from '../image/assess.png';
 
 const Transaction = (props) => {
   return (

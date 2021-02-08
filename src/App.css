@@ -1,10 +1,11 @@
 :root {
-  --link-color: #ffda79;
-  --heading-color: #0073e6;
-  --text-color: #f7f1e3;
-  --link-hover: #474787;
-  --bg: #66c2ff;
-  --side-bg: #227093;
+  --link-color: lightgray;
+  --heading-color: darkgray;
+  --text-color: #7367f0;
+  --link-hover: orange;
+  --light: #f6f6f6;
+  --side-bg: #7367f0;
+
 }
 
 * {
@@ -14,17 +15,13 @@
 }
 
 body {
-  background-color: var(--bg);
+  background-color: var(--light);
   font-family: 'Vazir';
   box-sizing: border-box;
 }
 
 .App {
   position: relative;
-}
-
-#root a:hover {
-  color: var(--link-hover);
 }
 
 .container {
@@ -47,20 +44,30 @@ header {
   width: 250px
 }
 
-.header-links , footer {
+footer {
   direction: rtl;
 }
 
-.header-links li {
-  display: inline-block;
-  list-style: none;
-  margin: 0 10px
+.account {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 100px;
+  justify-content: center;
+  align-items: center; 
 }
 
-.header-links li a, .account-container a, .register-link a {
+.account img {
+  width: 600px
+}
+
+.account-container a, .register-link a {
   text-decoration: none;
-  color: var(--link-color);
+  color: var(--light);
   font-size: 18px
+}
+
+.recovery-link a, .register-link a {
+  color: var(--text-color)
 }
 
 .side-menu {
@@ -77,14 +84,8 @@ header {
   transform: scale(.99);
 }
 
-.account {
-  background: url("./components/image/vector.svg") no-repeat;
-  background-size: cover;
-}
-
 .account-container, .recovery-container, .register-container {
-  width: 500px;
-  margin: auto;
+  width: 350px;
   direction: rtl;
 }
 
@@ -99,10 +100,10 @@ header {
 
 .account-container form input, .recovery-container input, .register-container input {
   display: block;
-  width: 500px;
+  width: 350px;
   padding: 10px;
   border-radius: 6px;
-  border: 2px solid #227093
+  border: 1px solid lightgray
 }
 
 #check {
@@ -119,10 +120,9 @@ header {
 }
 
 .test-link a , #submit {
-  background-color: #706fd3;
+  background-color: var(--side-bg);
   border-radius: 6px;
   padding: 10px 35px;
-  box-shadow: 0px 2px 20px 0px rgba(34, 112, 147,1.0);
   transition: all 1s
 }
 
@@ -165,19 +165,58 @@ aside {
  }
 
 .side-header {
-  text-align: center;
-  color: #fff
+    text-align: center;
+    color: #fff
  }
 
- .side-links ul li {
-  list-style: none;
-  text-align: right;
-  padding: 10px;
- } 
+ .nav-item {
+    list-style: none;
+    text-align: right;
+    padding: 10px;
+ }
+
+ .nav-item, .nav-item a {
+  color: var(--heading-color)
+ }
+
+ .nav-item p:hover,.nav-item a:hover {
+   color: var(--link-hover)
+ }
+
+ .nav-link {
+    list-style: none;
+    text-align: right;
+    padding: 10px 20px;
+ }
+
+ .nav-link a {
+  color: var(--link-color)
+ }
+
+ .nav-link:hover, .nav-link a:hover {
+  color: yellow 
+ }
 
  .side-links ul li a {
-  text-decoration: none;
-  color: #34ace0
+    text-decoration: none;
+ }
+
+ .side-links li, .side-links a {
+  cursor: pointer;
+ }
+
+ .side-links i {
+  font-size: 8px
+ }
+
+ .links-container {
+  height: 0;
+  overflow: hidden;
+  transition: height .5s
+ }
+
+ .open {
+  height: 90px;
  }
 
  .dash-container {
@@ -201,6 +240,34 @@ aside {
   justify-content: center;
   align-items: center;
   grid-gap: 30px
+}
+
+.users-container {
+  text-align: center;
+}
+
+.user-item {
+  direction: rtl;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  justify-content: center;
+  align-items: center;
+  border: 2px solid gray;
+  border-radius: 2px;
+}
+
+.user-item p {
+  display: inline-block;
+}
+
+.user-item button {
+  margin-left: 20px;
+  padding: 5px 10px;
+  border-style: none;
+  border: 1px solid gray;
+  border-radius: 4px;
+  background-color: var(--side-bg);
+  color: var(--light) 
 }
 
 .test-info-container {
@@ -336,14 +403,13 @@ input[type="radio"] {
 } 
 
 .cards-container {
-    width: 520px;
+    width: 600px;
     margin: 100px auto;
     overflow: hidden;
 }
 
 .cards {
-    width: 520px;
-    height: 200px;
+    width: 600px;
     display: grid;
     align-items: center;
     transform: translateX(0px);
@@ -351,37 +417,49 @@ input[type="radio"] {
 }
 
 .card {
-    width: 520px;
-    height: 100%;
-    position: relative;
-    background-color: #ffb142;
-    border: 1px solid black;
+    width: 600px;
+    heigt: 100%;
+    background-color: #d1ccc0;
     border-radius: 6px;
-    transition: transform .5s;
+    transition: transform .7s;
+    overflow-y: hidden;
 }
 
-.card p {
+.question {
     text-align: center;
     padding: 10px;
+    font-size: 18px
 }
 
 .card .answer {
-  background-color: #ccae62;
+  direction: rtl;
+  background-color: #ffb142;
   display: grid;
   justify-content: center;
   align-items: center;
-  transform: translateY(88px);
+  transform: translateY(67px);
   border-radius: 6px;
+  border-top: 2px solid black;
+  transition: transform .7s;
+  transition-delay: .2s
+}
+
+.active .answer {
+    transform: translateY(0px);
 }
 
 .answer p {
   padding: 0
 }
 
+.answer div {
+  text-align: center;
+}
+
 .answer input {
     display: inline-block;
-    width: 20px;
-    margin-left: 10px;
+    width: 15px;
+    margin-left: 5px;
 }
 
 .card-navigation {
@@ -392,6 +470,19 @@ input[type="radio"] {
   margin: 10px 5px;
   font-size: 18px
 }
+
+.card-navigation span:first-child, .card-navigation span:last-child {
+  cursor: pointer;
+}
+
+.card-navigation span:first-child {
+  margin-right: 15px
+}
+
+.card-navigation span:last-child {
+  margin-left: 15px
+}
+
 
 .assess-info img {
   width: 200px
@@ -417,7 +508,7 @@ footer ul li {
 
 footer a {
   text-decoration: none;
-  color: var(--link-color)
+  color: var(--text-color)
 }
 
 

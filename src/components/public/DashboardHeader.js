@@ -4,7 +4,7 @@ const DashboardHeader = (props) => {
   return (
     <div className="dashHeader p-h">
       <p>به پرسونالوژی خوش آمدید</p>
-      <p><i className="fas fa-bars"></i> علیرضا سلطانی</p>
+      <p>علیرضا سلطانی</p>
     </div>
   )
 }

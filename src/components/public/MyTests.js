@@ -1,6 +1,6 @@
 import React , {useEffect, useState} from 'react';
 import axios from 'axios';
-import assess from './image/assess.png';
+import assess from '../image/assess.png';
 import { Link } from "react-router-dom";
 
 
@@ -30,7 +30,7 @@ const MyTests = (props) => {
           <Link className="btn-info p-h-1">درباره آزمون</Link> 
           <Link className="btn-danger p-h-1">فایل خروجی</Link>
         </div>
-        <Link to={`/dashboard/Test/${item.name}`} className="buy-btn p-h-1 mt-h-1">خرید آزمون</Link>  
+        <Link to={`/dashboard/Test/${item.id}/${item.name}`} className="buy-btn p-h-1 mt-h-1">خرید آزمون</Link>  
       </div>
     
   ))

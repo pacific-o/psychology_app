@@ -1,10 +1,11 @@
 import React from 'react';
-import Header from './components/Header';
-import Login from './components/Login';
-import Reset from './components/Reset';
-import Register from './components/Register';
-import Footer from './components/Footer';
-import Dashboard from './components/Dashboard';
+import Header from './components/public/Header';
+import Login from './components/public/Login';
+import Reset from './components/public/Reset';
+import Register from './components/public/Register';
+import Footer from './components/public/Footer';
+import UserDashboard from './components/user/UserDashboard';
+import AdminDashboard from './components/admin/AdminDashboard';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { Provider } from 'react-redux';
 import store from './Redux/store';
@@ -28,7 +29,7 @@ function App() {
                <Register />
             </Route>
             <Route path="/dashboard">
-              <Dashboard />
+              <AdminDashboard />
             </Route>
           </Switch>
           <Footer />
