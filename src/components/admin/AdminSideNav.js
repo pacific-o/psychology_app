@@ -17,29 +17,29 @@ const AdminSideNav = (props) => {
         </div>
         <div className="side-links p-h">
             <ul>
-                <li className="nav-item"><NavLink to={`/dashboard`} activeStyle={{fontWeight: "bold",color: "#ffb142"}}>داشبورد</NavLink></li>
+                <li className="nav-item"><NavLink to={`/dashboard`} activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage: "linear-gradient(to right, #d4d1fa, #7367f0)"}}>داشبورد <i class="fas fa-house-user"></i></NavLink></li>
                 <li className="nav-item">
-                  <p onClick={openHnadler}>مدیریت کاربران <i className="far fa-circle"></i></p>
+                  <p onClick={openHnadler}>مدیریت کاربران <i class="fas fa-user-alt"></i></p>
                   <ul className="links-container">
-                    <li className="nav-link"><NavLink  to={`/dashboard/UsersList`} activeStyle={{fontWeight: "bold",color: "#ffb142"}}>کاریران</NavLink></li>
-                    <li className="nav-link">سطوح دسترسی</li>              
+                    <li className="nav-link"><NavLink  to={`/dashboard/UsersList`} activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage: "linear-gradient(to right, #d4d1fa, #7367f0)"}}>کاریران <i class="far fa-circle"></i></NavLink></li>
+                    <li className="nav-link"><NavLink  to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage: "linear-gradient(to right, #d4d1fa, #7367f0)"}}>سطوح دسترسی <i class="far fa-circle"></i></NavLink></li>              
                   </ul>
                 </li>                             
                 <li className="nav-item">
-                  <p onClick={openHnadler}>مدیریت آزمون ها <i className="far fa-circle"></i></p>
+                  <p onClick={openHnadler}>مدیریت آزمون ها <i class="fas fa-file-alt"></i></p>
                   <ul className="links-container">
-                    <li className="nav-link">آزمون ها</li>
-                    <li className="nav-link">ایجاد آزمون</li>
+                    <li className="nav-link"><NavLink  to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage: "linear-gradient(to right, #d4d1fa, #7367f0)"}}>آزمون ها <i class="far fa-circle"></i></NavLink></li>
+                    <li className="nav-link"><NavLink  to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage: "linear-gradient(to right, #d4d1fa, #7367f0)"}}>ایجاد آزمون <i class="far fa-circle"></i></NavLink></li>
                   </ul>
                 </li>
                 <li className="nav-item">
-                  <p onClick={openHnadler}>مدیریت مالی <i className="far fa-circle"></i></p>
+                  <p onClick={openHnadler}>مدیریت مالی <i class="fas fa-dollar-sign"></i></p>
                   <ul className="links-container">
-                    <li className="nav-link">سوابق مالی</li>
-                    <li className="nav-link">سوابق مالی</li>
+                    <li className="nav-link"><NavLink  to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage: "linear-gradient(to right, #d4d1fa, #7367f0)"}}>سوابق مالی <i class="far fa-circle"></i></NavLink></li>
+                    <li className="nav-link"><NavLink  to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage: "linear-gradient(to right, #d4d1fa, #7367f0)"}}>سوابق مالی <i class="far fa-circle"></i></NavLink></li>
                   </ul>
                 </li>
-                <li className="nav-item"><Link to={`/`}>خروج</Link> <i className="far fa-circle"></i></li>                
+                <li className="nav-item"><Link to={`/`}>خروج <i class="fas fa-sign-out-alt"></i></Link></li>                
             </ul>
         </div>
     </div>  )

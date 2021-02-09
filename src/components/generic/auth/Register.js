@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {useState} from 'react';
-import { checkPass } from '../../Redux';
+import { checkPass } from '../../../Redux';
 
 
 const Register = (props) => {
@@ -34,7 +34,7 @@ const Register = (props) => {
   }
 
   return (
-    <div className="register-container mt-h-2">
+    <div className="register-container mt-h-2 rtl">
         <div className="register-title">
             <h2 className="heading">به پرسونالوژی خوش آمدید</h2>
             <p className="text mt-h-1">{props.comment}</p>

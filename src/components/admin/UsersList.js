@@ -14,12 +14,12 @@ const UsersInfo = (props) => {
     }, []);
 
   const usersList = list.map(item => (
-  	<div className="user-item">
-        <p className="p-h-1">{item.email}</p>
+  	<div className="user-item mt-h-1">
+        <div><button>مشاهده</button></div>
+        <div><button>ویرایش</button></div>
+        <div><button>حذف</button></div>
         <p className="p-h-1">{item.role}</p>
-        <button>مشاهده</button>
-        <button>ویرایش</button>
-        <button>حذف</button>
+        <p className="p-h-1">{item.email}</p>        
   	</div>
   ))
 

@@ -22,22 +22,21 @@ body {
 
 .App {
   position: relative;
+  min-height: 100vh;
 }
 
 .container {
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 
 header {
+  background-image: linear-gradient(to right, #d4d1fa , #7367f0);
   border-bottom: 3px solid var(--side-bg)
 }
 
-.header-container {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  align-items: center;
-  justify-content: center;
+.rtl {
+  direction: rtl
 }
 
 .logo img {
@@ -45,13 +44,14 @@ header {
 }
 
 footer {
-  direction: rtl;
+  position: absolute;
+  bottom: 0;
 }
 
 .account {
   display: grid;
   grid-template-columns: auto auto;
-  grid-gap: 100px;
+  grid-gap: 200px;
   justify-content: center;
   align-items: center; 
 }
@@ -86,7 +86,6 @@ footer {
 
 .account-container, .recovery-container, .register-container {
   width: 350px;
-  direction: rtl;
 }
 
 .heading {
@@ -151,7 +150,7 @@ footer {
   color: var(--link-hover)
 }
 
-.dashContent {
+.dash-content {
     width: calc(100% - 250px);
     float: left;
   }
@@ -159,60 +158,73 @@ footer {
 aside {
     width: 250px;
     min-height: 100vh;
-    background-color: var(--side-bg);
+    background-image: linear-gradient(#7367f0, #d4d1fa );
     position: absolute;
     right: 0;
  }
 
 .side-header {
     text-align: center;
-    color: #fff
  }
 
- .nav-item {
-    list-style: none;
-    text-align: right;
-    padding: 10px;
+ .side-links {
+  width: 250px;
  }
 
- .nav-item, .nav-item a {
-  color: var(--heading-color)
+ .side-links ul {
+  width: 250px;
  }
 
- .nav-item p:hover,.nav-item a:hover {
-   color: var(--link-hover)
- }
-
- .nav-link {
-    list-style: none;
-    text-align: right;
-    padding: 10px 20px;
- }
-
- .nav-link a {
-  color: var(--link-color)
- }
-
- .nav-link:hover, .nav-link a:hover {
-  color: yellow 
- }
-
- .side-links ul li a {
-    text-decoration: none;
- }
-
- .side-links li, .side-links a {
+  .side-links li {
+  list-style: none;
+  text-align: right;
   cursor: pointer;
+  padding: 5px;
+ }
+
+ .side-links a:hover, .side-links p:hover {
+  padding-right: 10px;
+ }
+
+ .side-links a{
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    color: #262626;
+    transition: padding .3s
+ }
+
+ .side-links p {
+    cursor: pointer;
+    padding: 5px;
+    transition: padding .3s
  }
 
  .side-links i {
-  font-size: 8px
+  font-size: 16px;
+  margin-left: 10px
  }
 
  .links-container {
   height: 0;
   overflow: hidden;
   transition: height .5s
+ }
+
+ .nav-link i {
+  font-size: 10px
+ }
+
+ .nav-link a {
+  padding: 5px 30px;
+  color: #404040;
+  transition: padding .3s
+ }
+
+ .nav-link a:hover {
+  padding-right: 35px;
  }
 
  .open {
@@ -223,15 +235,15 @@ aside {
   overflow: hidden;
  }
 
-.dashHeader {
+.dash-header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   align-items: center;
 }
 
-.dashHeader p:last-child {
-  direction: rtl
+.dash-header p:last-child {
+  text-align: right;
 }
 
 .dash-info-container {
@@ -242,18 +254,14 @@ aside {
   grid-gap: 30px
 }
 
-.users-container {
-  text-align: center;
-}
-
 .user-item {
-  direction: rtl;
   display: grid;
   grid-template-columns: repeat(5,1fr);
   justify-content: center;
   align-items: center;
   border: 2px solid gray;
   border-radius: 2px;
+  text-align: center;
 }
 
 .user-item p {
@@ -261,14 +269,14 @@ aside {
 }
 
 .user-item button {
-  margin-left: 20px;
-  padding: 5px 10px;
+  width: 120px;
+  padding: 8px;
   border-style: none;
   border: 1px solid gray;
   border-radius: 4px;
   background-color: var(--side-bg);
-  color: var(--light) 
-}
+  color: var(--light);
+ }
 
 .test-info-container {
   display: grid;
@@ -328,7 +336,7 @@ aside {
 }
 
 .myTest-header h2, .myTest-header p, .myTransaction-header h2, .myTransaction-header p {
-  direction: rtl;
+  ;
 }
 
 .edit-container {
@@ -344,7 +352,7 @@ aside {
 }
 
 .edit-form {
-  direction: rtl
+  
 }
 
 .edit-form input {
@@ -432,7 +440,7 @@ input[type="radio"] {
 }
 
 .card .answer {
-  direction: rtl;
+  ;
   background-color: #ffb142;
   display: grid;
   justify-content: center;

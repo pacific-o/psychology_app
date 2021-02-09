@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import DashboardHeader from '../public/DashboardHeader';
+import DashboardHeader from '../generic/DashboardHeader';
 import AdminSideNav from './AdminSideNav';
 import AdminDashInfo from './AdminDashInfo';
 import UsersList from './UsersList';
@@ -10,7 +10,7 @@ import UsersList from './UsersList';
 const AdminDashboard = (props) => {
   return (
             <div className="dash-container container">
-                <div className="dashContent">
+                <div className="dash-content ">
                     <DashboardHeader />
                     <Switch>
                         <Route exact path="/dashboard">

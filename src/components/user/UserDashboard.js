@@ -1,11 +1,11 @@
 import React from 'react';
-import DashboardHeader from '../public/DashboardHeader';
+import DashboardHeader from '../generic/DashboardHeader';
 import UserSideNav from './UserSideNav';
 import UserDashInfo from './UserDashInfo';
-import MyTests from '../public/MyTests';
-import MyProfile from '../public/MyProfile';
-import Test from '../public/Test';
-import Transaction from '../public/Transaction';
+import MyTests from '../generic/MyTests';
+import MyProfile from '../generic/MyProfile';
+import Test from '../generic/Test';
+import Transaction from '../generic/Transaction';
 import { Route, Switch } from "react-router-dom";
 
 

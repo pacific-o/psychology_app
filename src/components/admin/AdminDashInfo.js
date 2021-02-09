@@ -4,7 +4,7 @@ import person from '../image/person.png';
 
 const AdminDashInfo = (props) => {
   return (
-    <div>
+    <div className="rtl mt-h-2">
             <img src={person} alt="person" />
             <p className="mt-h-1">علیرضا سلطانی</p>
             <p className="mt-h-1">کاربر بخش مدیریت</p>

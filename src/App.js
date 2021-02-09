@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from './components/public/Header';
-import Login from './components/public/Login';
-import Reset from './components/public/Reset';
-import Register from './components/public/Register';
-import Footer from './components/public/Footer';
+import Header from './components/generic/Header';
+import Login from './components/generic/auth/Login';
+import Reset from './components/generic/auth/Reset';
+import Register from './components/generic/auth/Register';
+import Footer from './components/generic/Footer';
 import UserDashboard from './components/user/UserDashboard';
 import AdminDashboard from './components/admin/AdminDashboard';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import loginLogo from '../image/login.svg';
+import loginLogo from '../../image/login.svg';
 
 
 
@@ -8,11 +8,11 @@ import loginLogo from '../image/login.svg';
 const Login = (props) => {
 
   return (
-    <div className="account p-h mt-h-2">
+    <div className="account container p-h mt-h-2">
       <div>
         <img src={loginLogo} />
       </div>
-      <div className="account-container">
+      <div className="account-container rtl">
         <h2 className="heading">خوش آمدید!</h2>
         <p className="text mt-h-1">لطفا وارد حساب کاربری خود شوید</p>
         <form className="mt-h-2">
