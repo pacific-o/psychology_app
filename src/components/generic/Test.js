@@ -1,10 +1,13 @@
 import React , {useEffect, useState} from 'react';
 import { useParams } from "react-router-dom";
+import Loader from './Loader';
+
 
 
 
 const TestsList = (props) => {
 
+      const [loader, setLoader] = useState(false)
       let { id } = useParams();
 
 
@@ -12,11 +15,13 @@ const TestsList = (props) => {
   const [index, setActiveIndex] = useState(1)
 
   useEffect(() => {
+     setLoader(true);
      fetch(`http://37.152.178.76:54000/api/assessments/${id}`)
      .then(res => res.json())
      .then(data => {
       console.log(data);
       console.log(data.data.questions);
+      setLoader(false);
       setQustionsData(data.data.questions);
       setActiveCard(index);
   })
@@ -78,8 +83,8 @@ const TestsList = (props) => {
 
   const questionCard = data.map(item => (
      <div className="card" questionNum={item.id}>
-        <p className="question mt-h-2">{item.text}</p>
-        <div className="answer p-h mt-h-2" style={{gridTemplateColumns: `repeat(${item.answers.length}, 1fr)`}}>
+        <div className="question-container"><p className="question">{item.text}</p></div>
+        <div className="answer p-h" style={{gridTemplateColumns: `repeat(${item.answers.length}, 1fr)`}}>
             {item.answers.map(answer => (
               <div>
                 <input type="radio" name="answer" value={answer.value} onClick={answerHandle}/>
@@ -93,7 +98,7 @@ const TestsList = (props) => {
 
 
 
-  return (
+  return ( loader ? <Loader /> :
     <div className="cards-container">
       <div className="cards" style={{gridTemplateColumns: `repeat(${data.length}, 1fr)`}}>
          {questionCard}

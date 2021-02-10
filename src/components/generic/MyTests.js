@@ -2,19 +2,25 @@ import React , {useEffect, useState} from 'react';
 import axios from 'axios';
 import assess from '../image/assess.png';
 import { Link } from "react-router-dom";
+import Loader from './Loader';
+
 
 
 
 const MyTests = (props) => {
 
   const [assessData, setData] = useState([]);
+  const [loader, setLoader] = useState(false)
+
 
   useEffect(() => {
+    setLoader(true);
      axios.get("http://37.152.178.76:54000/api/assessments")
      .then(response => {
-    console.log(response.data.data);
-    setData(response.data.data);
-    console.log(assessData)
+        console.log(response.data.data);
+        setLoader(false);
+        setData(response.data.data);
+        console.log(assessData)
   })
   }, [])
 
@@ -37,7 +43,7 @@ const MyTests = (props) => {
 
 
 
-  return (
+  return ( loader ? <Loader /> :
     <div className="asssessment-container">
       <div className="assess-info-container">
          {assessEl}

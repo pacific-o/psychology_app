@@ -29,7 +29,7 @@ function App() {
                <Register />
             </Route>
             <Route path="/dashboard">
-              <AdminDashboard />
+              <UserDashboard />
             </Route>
           </Switch>
           <Footer />

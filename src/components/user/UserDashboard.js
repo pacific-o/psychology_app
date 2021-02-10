@@ -24,7 +24,7 @@ const UserDashboard = (props) => {
                         <Route path="/dashboard/MyProfile">
                             <MyProfile />
                         </Route>
-                        <Route path="/dashboard/Test/:id/name">
+                        <Route path="/dashboard/Test/:id/:name">
                             <Test />
                         </Route>
                         <Route path="/dashboard/transaction">
