@@ -11,8 +11,8 @@ import { Route, Switch } from "react-router-dom";
 
 const UserDashboard = (props) => {
   return (
-            <div className="dash-container container">
-                <div className="dashContent">
+            <div className="dash-container">
+                <div className="dashContent container">
                     <DashboardHeader />
                     <Switch>
                         <Route exact path="/dashboard">

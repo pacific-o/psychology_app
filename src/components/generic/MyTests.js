@@ -30,13 +30,13 @@ const MyTests = (props) => {
   let assessEl = assessData.map(item => (
       <div className="assess-info mt-h-2">
         <h3>{item.description}</h3>
-        <img className="mt-h-1" src={assess} alt="" />
-        <p className="mt-h-1">{item.name}</p>
-        <div className="mt-h-1">
-          <Link className="btn-info p-h-1">درباره آزمون</Link> 
-          <Link className="btn-danger p-h-1">فایل خروجی</Link>
+        <img className="mt-h-2" src={assess} alt="" />
+        <p className="mt-h-2">{item.name}</p>
+        <div className="mt-h-2">
+          <Link className="assess-btn m-h btn-info ">درباره آزمون</Link> 
+          <Link className="assess-btn m-h btn-danger ">فایل خروجی</Link>
         </div>
-        <Link to={`/dashboard/Test/${item.id}/${item.name}`} className="buy-btn p-h-1 mt-h-1">خرید آزمون</Link>  
+        <Link to={`/dashboard/Test/${item.id}/${item.name}`} className="buy-btn p-h-1 mt-h-2">خرید آزمون</Link>  
       </div>
     
   ))
@@ -44,7 +44,7 @@ const MyTests = (props) => {
 
 
   return ( loader ? <Loader /> :
-    <div className="asssessment-container">
+    <div className="asssessment-container mt-h-2">
       <div className="assess-info-container">
          {assessEl}
       </div>  

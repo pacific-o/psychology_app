@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 const DashInfo = (props) => {
   return (
-    <div className="dash-info-container">
+    <div className="dash-info-container mt-h-2">
         <div className="test-info-container">
             <div className="test-info">
                 <h3>آزمون های موجود</h3>

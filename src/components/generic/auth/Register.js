@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {useState} from 'react';
 import { checkPass } from '../../../Redux';
+import registerLogo from '../../image/register.svg';
+
 
 
 const Register = (props) => {
@@ -15,7 +17,22 @@ const Register = (props) => {
         e.preventDefault();
         console.log(name,email,pass1,pass2);
         props.checkPass(name,email,pass1,pass2);
+
+        fetch("http://37.152.178.76:54000/api/register", { 
+        method: "POST", 
+        body: JSON.stringify({ 
+           name: name, 
+           email: email, 
+           password: pass1 
+        }), 
+        headers: {"Content-type": "application/json; charset=UTF-8"} 
+        })
+         .then(response => console.log(response)) 
+         .catch(err => console.log(err))
+
   }
+
+
 
   const setNameHandler = (e) => {
     setName(e.target.value)
@@ -34,12 +51,16 @@ const Register = (props) => {
   }
 
   return (
-    <div className="register-container mt-h-2 rtl">
+    <div className="register-container mt-h-2">
+      <div>
+        <img src={registerLogo} alt="register logo" />
+       </div>
+       <div className="mt-h-2 rtl"> 
         <div className="register-title">
             <h2 className="heading">به پرسونالوژی خوش آمدید</h2>
             <p className="text mt-h-1">{props.comment}</p>
         </div>
-        <div className="register-form mt-h-2">
+        <div className="register-form mt-h-1">
             <form onSubmit={handleSubmit} >
                 <label for="name">نام و نام خانوادگی خود را وارد کنید</label>
                 <input className="m-h-1" type="text" name="name" onChange={setNameHandler} required autofocus/>
@@ -55,6 +76,7 @@ const Register = (props) => {
         <div className="register-link mt-h-2">
             <p>قبلا ثبت نام کرده اید؟</p>
             <Link to={`/`}>وارد شوید...</Link>  
+        </div>
         </div>
     </div>
   )
