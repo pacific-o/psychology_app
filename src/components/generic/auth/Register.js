@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import {useState} from 'react';
 import { checkPass } from '../../../Redux';
 import registerLogo from '../../image/register.svg';
+import axios from 'axios';
+
 
 
 
@@ -18,7 +20,11 @@ const Register = (props) => {
         console.log(name,email,pass1,pass2);
         props.checkPass(name,email,pass1,pass2);
 
-        fetch("http://37.152.178.76:54000/api/register", { 
+
+        /*axios.get('http://37.152.178.76:54000/sanctum/csrf-cookie')
+        .then(response => {
+        fetch("http://37.152.178.76:54000/api/register", {
+        withCredentials: true, 
         method: "POST", 
         body: JSON.stringify({ 
            name: name, 
@@ -30,12 +36,47 @@ const Register = (props) => {
          .then(response => console.log(response)) 
          .catch(err => console.log(err))
 
+    });*/
+
+/*
+    fetch("http://37.152.178.76:54000/sanctum/csrf-cookie")
+    .then(response => {
+  
+          fetch("http://37.152.178.76:54000/api/register", {
+        withCredentials: true, 
+        method: "POST", 
+        body: JSON.stringify({ 
+           name: name, 
+           email: email, 
+           password: pass1 
+        }), 
+        headers: {"Content-type": "application/json; charset=UTF-8"} 
+        })
+         .then(response => console.log(response)) 
+         .catch(err => console.log(err))
+
+    })*/
+
+        fetch("http://37.152.178.76:54000/api/register", {
+        withCredentials: true, 
+        method: "POST", 
+        body: JSON.stringify({ 
+           name: name, 
+           email: email, 
+           password: pass1 
+        }), 
+        headers: {"Content-type": "application/json; charset=UTF-8"} 
+        })
+         .then(response => console.log(response.json())) 
+         .catch(err => console.log(err))
+
   }
 
 
 
   const setNameHandler = (e) => {
     setName(e.target.value)
+
   }
 
    const setEmailHandler = (e) => {
