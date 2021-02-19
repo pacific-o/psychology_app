@@ -1,11 +1,9 @@
 :root {
   --link-color: lightgray;
   --heading-color: darkgray;
-  --text-color: #7367f0;
+  --main-color: #7367f0;
   --link-hover: orange;
   --light: #f6f6f6;
-  --side-bg: #7367f0;
-
 }
 
 * {
@@ -33,7 +31,7 @@ body {
 
 header {
   background-image: linear-gradient(to right, #d4d1fa , #7367f0);
-  border-bottom: 3px solid var(--side-bg)
+  border-bottom: 3px solid var(--main-color)
 }
 
 .rtl {
@@ -63,25 +61,22 @@ header {
 }
 
 .recovery-link a, .register-link a {
-  color: var(--text-color)
+  color: var(--main-color)
 }
 
-.side-menu {
-  display: none;
-}
-
-.side-menu p {
-  color: var(--link-color);
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.side-menu p:active {
-  transform: scale(.99);
+.reset-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .account-container, .recovery-container {
   width: 350px;
+}
+
+.recovery-form input,.recovery-form label {
+  display: block;
 }
 
 .heading {
@@ -90,7 +85,7 @@ header {
 
 .text {
   font-size: 16px;
-  color: var(--text-color)
+  color: var(--main-color)
 }
 
 .register-container {
@@ -105,7 +100,7 @@ header {
   width: 600px
 }
 
-.account-container form input, .recovery-container input, .register-container input {
+.account-container form input, .recovery-form input, .register-container input , .row input {
   display: block;
   width: 350px;
   padding: 10px;
@@ -118,7 +113,7 @@ header {
   width: initial;
 }
 
-.account-container form label, .recovery-container label, .register-container label {
+.account-container form label, .recovery-form label, .register-container label , .row label {
   color: var(--heading-color)
 }
 
@@ -127,7 +122,7 @@ header {
 }
 
 .test-link a {
-  background-color: var(--side-bg);
+  background-color: var(--main-color);
   border-radius: 6px;
   padding: 10px 35px;
   transition: all 1s
@@ -147,7 +142,7 @@ header {
 
 #submit {
   width: 300px;
-  background-color: var(--side-bg);
+  background-color: var(--main-color);
   border-radius: 6px;
   padding: 10px 35px;
   color: var(--link-color);
@@ -186,7 +181,7 @@ dash-content {
 
 aside {
     width: 250px;
-    min-height: calc(100% - 130px);
+    min-height: 100vh;
     background-image: linear-gradient(#7367f0, #d4d1fa );
     position: absolute;
     right: 0;
@@ -268,6 +263,7 @@ aside {
 
 .users-container table th, td {
   border: 2px solid black;
+  border-radius: 4px;
   border-collapse: collapse;
   text-align: center;
 }
@@ -280,11 +276,63 @@ aside {
   padding: 10px 5px;
 }
 
+.hidden-user-info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(#7367f0, #d4d1fa );
+  opacity: .95;
+  z-index: 100;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  display: none;
+}
+
+.show-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden-user-info button {
+  border-style: none;
+  border-radius: 4px;
+  background-color: #d4d1fa;
+  padding: 10px 40px;
+  margin-top: 50px
+
+}
+
+.user-info-container {
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 50px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  justify-content: center;
+  align-items: center;
+  grid-gap: 50px;
+}
+
 .test-info-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;align-self: center;
   grid-gap: 15px
+}
+
+.test-info-container a {
+  text-decoration: none;
+  color: #000
 }
 
 .test-info {
@@ -561,7 +609,7 @@ footer ul li {
 
 footer a {
   text-decoration: none;
-  color: var(--text-color)
+  color: var(--main-color)
 }
 
 .loader {
@@ -589,7 +637,7 @@ footer a {
   width: 6px;
   height: 18px;
   border-radius: 20%;
-  background: var(--side-bg);
+  background: var(--main-color);
 }
 .lds-spinner div:nth-child(1) {
   transform: rotate(0deg);
@@ -668,11 +716,6 @@ footer a {
   .header-items {
     display: none;
   }
-
-  .side-menu {
-    display: block;
-    text-align: right
-   }
 
   }
 

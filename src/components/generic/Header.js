@@ -11,9 +11,6 @@ const Header = (props) => {
             <div className="logo">
                 <Link to="/"><img src={logo} alt="logo" /></Link>
             </div>     
-            <div className="side-menu">
-                <p><i className="fas fa-bars"></i></p>
-            </div>
         </div>
      </header>
   )

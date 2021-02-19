@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 const Footer = (props) => {
   return (
-    <footer className="p-h rtl">
+    <footer className="p-h rtl mt-h-4">
         <ul>
             <li><Link> سیاست حفظ حریم خصوصی</Link></li>
             <li><Link>شرایط و ضوابط</Link></li>

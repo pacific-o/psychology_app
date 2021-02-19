@@ -1,53 +1,12 @@
-import React , {useEffect, useState} from 'react';
-import axios from 'axios';
+import React from 'react';
 import assess from '../image/assess.png';
-import { Link } from "react-router-dom";
-import Loader from './Loader';
 
 
 
 
 const MyTests = (props) => {
 
-  const [assessData, setData] = useState([]);
-  const [loader, setLoader] = useState(false)
-
-
-  useEffect(() => {
-    setLoader(true);
-     axios.get("http://37.152.178.76:54000/api/assessments")
-     .then(response => {
-        console.log(response.data.data);
-        setLoader(false);
-        setData(response.data.data);
-        console.log(assessData)
-  })
-  }, [])
-
-
-
-
-  let assessEl = assessData.map(item => (
-      <div className="assess-info mt-h-2">
-        <h3>{item.description}</h3>
-        <img className="mt-h-2" src={assess} alt="" />
-        <p className="mt-h-2">{item.name}</p>
-        <div className="mt-h-2">
-          <Link className="assess-btn m-h btn-info ">درباره آزمون</Link> 
-          <Link className="assess-btn m-h btn-danger ">فایل خروجی</Link>
-        </div>
-        <Link to={`/dashboard/Test/${item.id}/${item.name}`} className="buy-btn p-h-1 mt-h-2">خرید آزمون</Link>  
-      </div>
-    
-  ))
-
-
-
-  return ( loader ? <Loader /> :
-    <div className="asssessment-container mt-h-2">
-      <div className="assess-info-container">
-         {assessEl}
-      </div>  
+  return (
       <div className="myTest-header p-h mt-h-4">
         <img src={assess} alt="" />
         <div>
@@ -55,7 +14,6 @@ const MyTests = (props) => {
             <p>در فهرست زیر،وضعیت آزمون های خود را مشاهده می کنید. برای مشاهده آزمون های موجود در وبسایت، اینجارا کلیک کنید.</p>
         </div>
        </div>
-    </div>
   )
 }
 

@@ -6,26 +6,18 @@ const DashInfo = (props) => {
   return (
     <div className="dash-info-container mt-h-2">
         <div className="test-info-container">
+            <Link to={`/dashboard/assessments`}>
+                <div className="test-info">
+                   <h3>آزمون موجود</h3>
+                   <p className="test-num p-h">۵</p>
+                   <p className="p-h">مشاهده لیست آزمون ها</p>
+                </div>
+            </Link>
             <div className="test-info">
-                <h3>آزمون های موجود</h3>
+                <h3>آزمون انجام شده</h3>
                 <p className="test-num p-h">۵</p>
                 <p className="p-h">مشاهده لیست آزمون ها</p>
-            </div>
-            <div className="test-info">
-                <h3>آزمون های موجود</h3>
-                <p className="test-num p-h">۵</p>
-                <p className="p-h">مشاهده لیست آزمون ها</p>
-            </div>
-            <div className="test-info">
-                <h3>آزمون های موجود</h3>
-                <p className="test-num p-h">۵</p>
-                <p className="p-h">مشاهده لیست آزمون ها</p>
-            </div>
-             <div className="test-info">
-                <h3>آزمون های موجود</h3>
-                <p className="test-num p-h">۵</p>
-                <p className="p-h">مشاهده لیست آزمون ها</p>
-            </div>                                   
+            </div>                               
         </div>
         <div className="personal-info">
             <img src={person} alt="person" />

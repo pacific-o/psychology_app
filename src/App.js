@@ -7,20 +7,18 @@ import Footer from './components/generic/Footer';
 import UserDashboard from './components/user/UserDashboard';
 import AdminDashboard from './components/admin/AdminDashboard';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import { Provider } from 'react-redux';
+import {connect} from 'react-redux';
 import store from './Redux/store';
-
 import './App.css';
 
-function App() {
+const App = (props) => {
   return (
-    <Provider store={store}>
+      <div className="App">    
       <Router>
-        <div className="App">
           <Header />
           <Switch>
             <Route exact path="/">
-               <Login />
+               {props.status ? <Redirect to="/dashboard" /> : <Login /> } 
             </Route>
             <Route path="/password/reset">
                <Reset />
@@ -29,14 +27,20 @@ function App() {
                <Register />
             </Route>
             <Route path="/dashboard">
-              <AdminDashboard />
+             {props.role === 1 ? <AdminDashboard /> : <UserDashboard />}
             </Route>
           </Switch>
           <Footer />
-        </div>
       </Router>  
-    </Provider>
+    </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    status : state.login.loginStatus,
+    role : state.login.role
+  }
+}
+
+export default connect(mapStateToProps)(App);

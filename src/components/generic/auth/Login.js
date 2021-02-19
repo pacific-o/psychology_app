@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import loginLogo from '../../image/login.svg';
+import { connect } from 'react-redux';
+import { loginRequest } from '../../../Redux';
 import axios from 'axios';
 
 
@@ -19,20 +21,9 @@ const Login = (props) => {
     },[] );
 
     const handleSubmit = () => {
-
-      fetch("http://37.152.178.76:54000/api/login", {
-        withCredentials: true, 
-        method: "POST", 
-        body: JSON.stringify({ 
-           email: email, 
-           password: password 
-        }), 
-        headers: {"Content-type": "application/json; charset=UTF-8"} 
-        })
-         .then(response => console.log(response))
-         .catch(err => console.log(err))
-
+       props.loginRequest(email,password);  
     }
+
 
    const setEmailHandler = (e) => {
     setEmail(e.target.value)
@@ -49,7 +40,7 @@ const Login = (props) => {
       </div>
       <div className="account-container rtl">
         <h2 className="heading">خوش آمدید!</h2>
-        <p className="text mt-h-1">لطفا وارد حساب کاربری خود شوید</p>
+        <p className="text mt-h-1">{props.comment}</p>
         <form className="mt-h-2">
           <label for="email">ایمیل</label>
           <input className="m-h-1" type="email" name="email" onChange={setEmailHandler} placeholder="ایمیل خود را وارد نمایید" required/>
@@ -62,7 +53,7 @@ const Login = (props) => {
           <Link to={`/password/reset`}>فراموشی رمز عبور!</Link>
         </div>
         <div className="test-link mt-h-2">
-          <Link to={`/dashboard`} onClick={handleSubmit}>ورود به پنل آزمون ها</Link>  
+          <Link to onClick={handleSubmit}>ورود به پنل آزمون ها</Link>  
         </div>
         <div className="register-link mt-h-2">
           <p>کاربر جدید هستید ؟</p>
@@ -73,4 +64,17 @@ const Login = (props) => {
   )
 }
 
-export default Login;
+
+const mapStateToProps = (state) => {
+  return {
+    comment : state.login.comment
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+      loginRequest : (email, password) => dispatch(loginRequest(email,password))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

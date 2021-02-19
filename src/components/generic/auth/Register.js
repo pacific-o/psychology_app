@@ -20,43 +20,6 @@ const Register = (props) => {
         console.log(name,email,pass1,pass2);
         props.checkPass(name,email,pass1,pass2);
 
-
-        /*axios.get('http://37.152.178.76:54000/sanctum/csrf-cookie')
-        .then(response => {
-        fetch("http://37.152.178.76:54000/api/register", {
-        withCredentials: true, 
-        method: "POST", 
-        body: JSON.stringify({ 
-           name: name, 
-           email: email, 
-           password: pass1 
-        }), 
-        headers: {"Content-type": "application/json; charset=UTF-8"} 
-        })
-         .then(response => console.log(response)) 
-         .catch(err => console.log(err))
-
-    });*/
-
-/*
-    fetch("http://37.152.178.76:54000/sanctum/csrf-cookie")
-    .then(response => {
-  
-          fetch("http://37.152.178.76:54000/api/register", {
-        withCredentials: true, 
-        method: "POST", 
-        body: JSON.stringify({ 
-           name: name, 
-           email: email, 
-           password: pass1 
-        }), 
-        headers: {"Content-type": "application/json; charset=UTF-8"} 
-        })
-         .then(response => console.log(response)) 
-         .catch(err => console.log(err))
-
-    })*/
-
         fetch("http://37.152.178.76:54000/api/register", {
         withCredentials: true, 
         method: "POST", 
