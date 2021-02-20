@@ -40,7 +40,7 @@ const Login = (props) => {
       </div>
       <div className="account-container rtl">
         <h2 className="heading">خوش آمدید!</h2>
-        <p className="text mt-h-1">{props.comment}</p>
+        <p className="text mt-h-1" style={props.comment === "اطلاعات شما به درستی وارد نشده است" ? {color: 'red'} : {}}>{props.comment}</p>
         <form className="mt-h-2">
           <label for="email">ایمیل</label>
           <input className="m-h-1" type="email" name="email" onChange={setEmailHandler} placeholder="ایمیل خود را وارد نمایید" required/>

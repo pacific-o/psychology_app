@@ -8,18 +8,12 @@ import Test from '../generic/Test';
 import Assessments from '../generic/Assessments';
 import Transaction from '../generic/Transaction';
 import { Route, Switch } from "react-router-dom";
-import { setLoginInfo } from '../../Redux';
-import { connect } from 'react-redux';
 
 
 
 
 const UserDashboard = (props) => {
 
-   useEffect(() => {
-      props.setLoginInfo(false)
-
-    },[] );
 
   return (
             <div className="dash-container">
@@ -53,10 +47,5 @@ const UserDashboard = (props) => {
   )
 }
 
-const mapDispatchToProps = (dispatch) => {
-   return {
-    setLoginInfo : (status) => dispatch(setLoginInfo(status))
-   }
-}
 
-export default connect(null,mapDispatchToProps)(UserDashboard);
+export default UserDashboard;

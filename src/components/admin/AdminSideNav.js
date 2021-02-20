@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setLoginInfo } from '../../Redux';
 
 
 const AdminSideNav = (props) => {
@@ -7,6 +9,10 @@ const AdminSideNav = (props) => {
   const openHnadler = (e) => {
 	e.target.nextSibling.classList.toggle('open');
   }
+
+    const logOut = () => {
+         props.setLoginInfo(false)
+   }  
 
   return (
     <div className="sideNav">
@@ -39,13 +45,19 @@ const AdminSideNav = (props) => {
                     <li className="nav-link"><NavLink  to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage: "linear-gradient(to right, #d4d1fa, #7367f0)"}}>سوابق مالی <i class="far fa-circle"></i></NavLink></li>
                   </ul>
                 </li>
-                <li className="nav-item"><Link to={`/`}>خروج <i class="fas fa-sign-out-alt"></i></Link></li>                
+                <li className="nav-item" onClick={logOut}><Link to={`/`}>خروج <i class="fas fa-sign-out-alt"></i></Link></li>                
             </ul>
         </div>
     </div>  )
 }
 
-export default AdminSideNav;
+const mapDispatchToProps = (dispatch) => {
+   return {
+    setLoginInfo : (status) => dispatch(setLoginInfo(status))
+   }
+}
 
-<NavLink to={`/dashboard/MyProfile`} activeStyle={{fontWeight: "bold",color: "#ffb142"}}>ویرایش پروفایل</NavLink>
+
+export default connect(null,mapDispatchToProps)(AdminSideNav);
+
 

@@ -1,12 +1,12 @@
 import React from 'react';
-import resetPass from '../../image/reset-password.svg';
+import resetLogo from '../../image/reset-password.svg';
 
 
 const Reset = (props) => {
   return (
     <div className="reset-container mt-h-2">
       <div>
-        <img src={resetPass} alt="reset logo" /> 
+        <img src={resetLogo} alt="reset logo" /> 
       </div>
       <div>
         <div className="recovery-container mt-h-2 rtl">
