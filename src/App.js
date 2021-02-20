@@ -39,7 +39,7 @@ const App = (props) => {
 const mapStateToProps = (state) => {
   return {
     status : state.login.loginStatus,
-    role : state.login.role
+    role : state.login.userInfo.role_id
   }
 }
 

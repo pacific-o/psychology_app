@@ -1,19 +1,25 @@
 import React from 'react';
 import person from '../image/person.png';
+import { connect } from 'react-redux';
+
 
 
 const AdminDashInfo = (props) => {
   return (
     <div className="rtl mt-h-2">
             <img src={person} alt="person" />
-            <p className="mt-h-1">علیرضا سلطانی</p>
+            <p className="mt-h-1">{props.userInfo.name}</p>
             <p className="mt-h-1">کاربر بخش مدیریت</p>
-            <p className="mt-h-1">ویرایش مشخصات</p>
-            <p className="mt-h-1">a.soltani63@yahoo.com :آدرس ایمیل</p>
-            <p className="mt-h-1">سن:٣٥</p>
-            <p className="mt-h-1">جنسیت: نامشخص</p>
+            <p className="mt-h-1">{props.userInfo.email} :آدرس ایمیل</p>
+            <p className="mt-h-1">سن:{props.userInfo.age}</p>
+            <p className="mt-h-1">جنسیت: {props.userInfo.gender}</p>
     </div>
   )
 }
+const mapStateToProps = (state) => {
+    return {
+        userInfo : state.login.userInfo
+    }
+}
 
-export default AdminDashInfo;
+export default connect(mapStateToProps)(AdminDashInfo);

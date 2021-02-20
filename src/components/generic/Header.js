@@ -8,7 +8,7 @@ import { setLoginInfo } from '../../Redux';
 const Header = (props) => {
    
    const logOut = () => {
-         props.setLoginInfo(false)
+         props.setLoginInfo(false, {})
    }  
 
   return (
@@ -24,7 +24,7 @@ const Header = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
    return {
-    setLoginInfo : (status) => dispatch(setLoginInfo(status))
+    setLoginInfo : (status, data) => dispatch(setLoginInfo(status,data))
    }
 }
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import person from '../image/person.png';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+
 
 const DashInfo = (props) => {
   return (
@@ -21,15 +23,22 @@ const DashInfo = (props) => {
         </div>
         <div className="personal-info">
             <img src={person} alt="person" />
-            <p className="mt-h-1">علیرضا سلطانی</p>
+            <p className="mt-h-1">{props.userInfo.name}</p>
             <p className="mt-h-1">کاربر بخش آزمون ها</p>
             <p className="mt-h-1"><Link to={`/dashboard/MyProfile`}>ویرایش مشخصات</Link></p>
-            <p className="mt-h-1">a.soltani63@yahoo.com :آدرس ایمیل</p>
-            <p className="mt-h-1">سن:٣٥</p>
-            <p className="mt-h-1">جنسیت: نامشخص</p>
+            <p className="mt-h-1">{props.userInfo.email} :آدرس ایمیل</p>
+            <p className="mt-h-1">سن: {props.userInfo.age}</p>
+            <p className="mt-h-1">جنسیت: {props.userInfo.age}</p>
         </div>
     </div>
   )
 }
 
-export default DashInfo;
+const mapStateToProps = (state) => {
+    return {
+        userInfo : state.login.userInfo
+    }
+}
+
+
+export default connect(mapStateToProps)(DashInfo);

@@ -3,12 +3,12 @@ import axios from 'axios';
 
 
 
-export const setLoginInfo = (status,role ,message) => {
+export const setLoginInfo = (status,data ,message) => {
 	return {
 		type : SET_LOGIN_INFO,
 		payLoad : {
 			loginStatus : status,
-			role : role,
+			userInfo : data,
 			comment : message,
 		}
 	}
@@ -21,10 +21,10 @@ export const loginRequest = (email, password) => {
           email: email,
           password: password
         }).then(response => {
-         console.log(response);
+         console.log(response.data.data);
          console.log(response.data.status);
          if (response.data.status === "success") {
-            dispatch(setLoginInfo(true, response.data.data.role_id, ''))
+            dispatch(setLoginInfo(true, response.data.data, ''))
          } else if (response.data.status === "failed") {
             dispatch(setLoginInfo(false,'', "اطلاعات شما به درستی وارد نشده است"))
          }

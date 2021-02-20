@@ -7,7 +7,7 @@ import { setLoginInfo } from '../../Redux';
 const SideNav = (props) => {
 
      const logOut = () => {
-         props.setLoginInfo(false)
+         props.setLoginInfo(false, {})
    }  
 
   return (
@@ -31,7 +31,7 @@ const SideNav = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
    return {
-    setLoginInfo : (status) => dispatch(setLoginInfo(status))
+    setLoginInfo : (status, data) => dispatch(setLoginInfo(status,data))
    }
 }
 

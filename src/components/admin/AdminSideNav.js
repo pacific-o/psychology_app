@@ -2,6 +2,8 @@ import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setLoginInfo } from '../../Redux';
+import axios from 'axios';
+
 
 
 const AdminSideNav = (props) => {
@@ -11,7 +13,11 @@ const AdminSideNav = (props) => {
   }
 
     const logOut = () => {
-         props.setLoginInfo(false)
+      console.log("alireza")
+         props.setLoginInfo(false, {})
+          axios.post('http://37.152.178.76:54000/user/logout')
+        .then(response => console.log(response))
+        .catch(error => console.log(error))
    }  
 
   return (
@@ -53,7 +59,7 @@ const AdminSideNav = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
    return {
-    setLoginInfo : (status) => dispatch(setLoginInfo(status))
+    setLoginInfo : (status, data) => dispatch(setLoginInfo(status,data))
    }
 }
 
