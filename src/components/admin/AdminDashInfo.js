@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 const AdminDashInfo = (props) => {
   return (
-    <div className="rtl mt-h-2">
+    <div className="rtl mt-h-2 container">
             <img src={person} alt="person" />
             <p className="mt-h-1">{props.userInfo.name}</p>
             <p className="mt-h-1">کاربر بخش مدیریت</p>

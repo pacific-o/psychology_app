@@ -1,21 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import Loader from '../generic/Loader';
+import axios from 'axios';
+
 
 const UsersInfo = (props) => {
 
   const [loader, setLoader] = useState(false);
 	const[list, setUsersList] = useState([]);
   const[selectedUser, setSelectedUser] = useState([]);
+  const[selectedId, setSelectedId] = useState();
 
   useEffect(() => {
-        setLoader(true);
+     getData()
+    }, []);
+
+  const getData = () => {
+          setLoader(true);
         fetch(`http://37.152.178.76:54000/api/users`)
         .then(res => res.json())
         .then(data => {
            setLoader(false);
            setUsersList(data.data);
         });
-    }, []);
+  }
+
 
   const selectorHandler = (e) => {
     list.map(item => {
@@ -26,8 +34,30 @@ const UsersInfo = (props) => {
     showSelected();
   }
 
+
   const showSelected = () => {
         document.querySelector(".hidden-user-info").classList.toggle("show-info");
+  }
+
+  const toggleRemoveConfirmation = () => {
+        document.querySelector(".delete-confirmation").classList.toggle("show-info");
+  }
+
+
+  const showRemoveConfirmation = (e) => {
+    const id = e.target.id;
+    toggleRemoveConfirmation()
+    setSelectedId(id);
+  }
+
+  const removeHandler = () => {
+    axios.delete(`http://37.152.178.76:54000/api/users/${selectedId}`)
+    .then(response => {
+    if (response.status === 202) {
+      getData()
+    }
+    })
+    .catch(error => console.log(error))
   }
 
 
@@ -44,7 +74,7 @@ const UsersInfo = (props) => {
          <tbody> 
         {list.map(item => (
           <tr>
-            <td><button className="btn btn-danger" id={item.id}>حذف</button></td>
+            <td><button className="btn btn-danger" id={item.id} onClick={showRemoveConfirmation}>حذف</button></td>
             <td><button className="btn btn-success" id={item.id} onClick={showSelected}>ویرایش</button></td>
             <td><button className="btn btn-info" id={item.id} onClick={selectorHandler}>مشاهده</button></td>
             <td>{item.role}</td>
@@ -54,7 +84,7 @@ const UsersInfo = (props) => {
         </tbody>
      </table>
      <div className="hidden-user-info">
-      <form className="mt-h-4">
+      <form className="mt-h-2">
        <div className="user-info-container">
         <div className="row">
           <div className="rtl">
@@ -87,6 +117,13 @@ const UsersInfo = (props) => {
        </div>       
       </form>
       <button onClick={showSelected}>خروج</button>
+     </div>
+     <div className="delete-confirmation">
+        <p>آیا از حذف این کابر اطمینان داری ؟</p>
+        <div>
+           <button className="btn btn-success" onClick={removeHandler}>بلی</button>
+           <button className="btn btn-danger" onClick={toggleRemoveConfirmation}>خیر</button>
+        </div>
      </div>
     </div>
   )

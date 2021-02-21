@@ -12,7 +12,7 @@ const AdminDashboard = (props) => {
 
 
   return (
-            <div className="dash-container container">
+            <div className="dash-container">
                 <div className="dash-content ">
                     <DashboardHeader />
                     <Switch>
