@@ -1,5 +1,7 @@
 import {LOGIN_REQUEST,SET_LOGIN_INFO} from './loginTypes';
 import axios from 'axios';
+import {API} from '../../components/generic/Api';
+
 
 
 
@@ -17,7 +19,7 @@ export const setLoginInfo = (status,data ,message) => {
 
 export const loginRequest = (email, password) => {
   return (dispatch) => {
-  		axios.post('http://37.152.178.76:54000/api/login', {
+  		axios.post(`${API}/api/login`, {
           email: email,
           password: password
         }).then(response => {

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 
 const DashInfo = (props) => {
+    const gender = props.userInfo.gender === "1" ? "مرد" : "زن";
   return (
     <div className="dash-info-container mt-h-2">
         <div className="test-info-container">
@@ -28,7 +29,7 @@ const DashInfo = (props) => {
             <p className="mt-h-1"><Link to={`/dashboard/MyProfile`}>ویرایش مشخصات</Link></p>
             <p className="mt-h-1">{props.userInfo.email} :آدرس ایمیل</p>
             <p className="mt-h-1">سن: {props.userInfo.age}</p>
-            <p className="mt-h-1">جنسیت: {props.userInfo.age}</p>
+            <p className="mt-h-1">جنسیت: {gender}</p>
         </div>
     </div>
   )

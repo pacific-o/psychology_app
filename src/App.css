@@ -398,14 +398,14 @@ aside {
 
 .edit-container {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  justify-content: center;
+  grid-template-columns: auto auto;
+  justify-content: space-evenly;
   align-items: center;
   grid-gap: 50px;
 }
 
 .edit-container img {
-  width: 350px
+  width: 450px
 }
 
 .edit-form {

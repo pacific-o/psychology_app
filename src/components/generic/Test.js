@@ -1,30 +1,40 @@
 import React , {useEffect, useState} from 'react';
 import { useParams } from "react-router-dom";
 import Loader from './Loader';
+import axios from 'axios';
+import {API} from './Api';
+
 
 
 
 
 const TestsList = (props) => {
 
-      const [loader, setLoader] = useState(false)
+      const [loader, setLoader] = useState(false);
+      const [data, setQustionsData] = useState([]);
+      const [answersArray, setAnswer] = useState([]);
+      const [index, setActiveIndex] = useState(1)
       let { id } = useParams();
 
 
-  const [data, setQustionsData] = useState([])
-  const [index, setActiveIndex] = useState(1)
+
 
   useEffect(() => {
      setLoader(true);
-     fetch(`http://37.152.178.76:54000/api/assessments/${id}`)
-     .then(res => res.json())
-     .then(data => {
-      console.log(data);
-      console.log(data.data.questions);
+    axios.get(`${API}/api/assessments/${id}`)
+    .then(response => {
+      console.log(response);
       setLoader(false);
-      setQustionsData(data.data.questions);
+      setQustionsData(response.data.data.questions);
+      let ansArr = [];
+      for (var i = 0; i < response.data.data.questions.length; i++) {
+        ansArr.push("?");
+      }
+      setAnswer(ansArr);
       setActiveCard(index);
-  })
+      console.log(answersArray);
+    })
+    .catch(err => console.log(err))
   },[])
 
  
@@ -76,13 +86,16 @@ const TestsList = (props) => {
 
 
   const answerHandle = (e) => {
+    let newAnswers = answersArray;
     console.log(e.target.parentNode.parentNode.parentNode.getAttribute('questionNum'), e.target.value);
+    newAnswers[(e.target.parentNode.parentNode.parentNode.getAttribute('questionNum') - 1)] = e.target.value;
+    console.log(newAnswers);
     nextCard();
   }
 
 
   const questionCard = data.map(item => (
-     <div className="card" questionNum={item.id}>
+     <div className="card" questionNum={item.order}>
         <div className="question-container"><p className="question">{item.text}</p></div>
         <div className="answer p-h" style={{gridTemplateColumns: `repeat(${item.answers.length}, 1fr)`}}>
             {item.answers.map(answer => (

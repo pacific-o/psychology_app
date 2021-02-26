@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import loginLogo from '../../image/login.svg';
 import { connect } from 'react-redux';
 import { loginRequest } from '../../../Redux';
+import {API} from '../Api';
 import axios from 'axios';
 
 
@@ -15,8 +16,9 @@ const Login = (props) => {
     const [password, setPassword] = useState("");
 
     useEffect(() => {
-      axios.get('http://37.152.178.76:54000/sanctum/csrf-cookie')
+      axios.get(`${API}/sanctum/csrf-cookie`)
         .then(response => console.log(response))
+        .catch(err => console.log(err))
 
     },[] );
 

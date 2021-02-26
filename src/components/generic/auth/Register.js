@@ -5,6 +5,8 @@ import {useState} from 'react';
 import { checkPass } from '../../../Redux';
 import registerLogo from '../../image/register.svg';
 import axios from 'axios';
+import {API} from '../Api';
+
 
 
 
@@ -20,21 +22,15 @@ const Register = (props) => {
         console.log(name,email,pass1,pass2);
         props.checkPass(name,email,pass1,pass2);
 
-        fetch("http://37.152.178.76:54000/api/register", {
-        withCredentials: true, 
-        method: "POST", 
-        body: JSON.stringify({ 
+         axios.post(`${API}/api/register`,{ 
            name: name, 
            email: email, 
            password: pass1 
-        }), 
-        headers: {"Content-type": "application/json; charset=UTF-8"} 
         })
-         .then(response => console.log(response.json())) 
-         .catch(err => console.log(err))
+        .then(response => console.log(response))
+        .catch(error => console.log(error))
 
-  }
-
+  };
 
 
   const setNameHandler = (e) => {
