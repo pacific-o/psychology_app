@@ -1,9 +1,13 @@
 import React from 'react';
 import resetLogo from '../../image/reset-password.svg';
+import Header from '../Header';
+
 
 
 const Reset = (props) => {
   return (
+    <div className="main-content">
+    <Header />
     <div className="reset-container mt-h-2">
       <div>
         <img src={resetLogo} alt="reset logo" /> 
@@ -22,7 +26,7 @@ const Reset = (props) => {
         </div>
       </div>
     </div>
-
+</div>
   )
 }
 

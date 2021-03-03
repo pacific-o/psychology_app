@@ -1,5 +1,5 @@
 import React from "react";
-import person from "../image/person.png";
+import person from "../image/person.jpg";
 import { connect } from "react-redux";
 
 const AdminDashInfo = (props) => {

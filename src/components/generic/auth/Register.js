@@ -6,6 +6,8 @@ import { checkPass } from '../../../Redux';
 import registerLogo from '../../image/register.svg';
 import axios from 'axios';
 import {API} from '../Api';
+import Header from '../Header';
+
 
 
 
@@ -51,6 +53,8 @@ const Register = (props) => {
   }
 
   return (
+    <div className="main-content">
+    <Header />
     <div className="register-container mt-h-2">
       <div>
         <img src={registerLogo} alt="register logo" />
@@ -78,6 +82,7 @@ const Register = (props) => {
             <Link to={`/`}>وارد شوید...</Link>  
         </div>
         </div>
+    </div>
     </div>
   )
 }

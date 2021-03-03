@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './components/generic/Header';
 import Login from './components/generic/auth/Login';
 import Reset from './components/generic/auth/Reset';
 import Register from './components/generic/auth/Register';
@@ -15,7 +14,6 @@ const App = (props) => {
   return (
       <div className="App">    
       <Router>
-          <Header />
           <Switch>
             <Route exact path="/">
                {props.status ? <Redirect to="/dashboard" /> : <Login /> } 

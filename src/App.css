@@ -1,6 +1,6 @@
 :root {
-  --link-color: lightgray;
-  --heading-color: darkgray;
+  --link--title-color: #999999;
+  --heading-color: #666666;
   --main-color: #7367f0;
   --link-hover: orange;
   --light: #f6f6f6;
@@ -39,7 +39,7 @@ header {
 }
 
 .logo img {
-  width: 250px
+  width: 80px
 }
 
 .account {
@@ -154,16 +154,42 @@ header {
   color: var(--link-hover)
 }
 
- .dash-container {
-  width: calc(100% - 250px);
-  float: left;
-  overflow: hidden;
+ .dash-content {
+  width: calc(100% - 70px);
+  transition: width .5s
+ }
+
+ .dash-content-collapse {
+  width: calc(100% - 270px)
  }
 
 .dash-header {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  text-align: center;
+  grid-template-columns: 300px 100px;
+  justify-content: space-between;
+}
+
+.dash-header i {
+  font-size: 20px;
+  color: var(--heading-color)
+}
+
+.dash-header-info {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.dash-header img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.dash-header div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dash-info-container {
@@ -174,57 +200,98 @@ header {
   grid-gap: 30px
 }
 
-dash-content {
-    width: calc(100% - 250px);
-    float: left;
-  }
-
 aside {
-    width: 250px;
+    width: 270px;
     min-height: 100vh;
-    background-image: linear-gradient(#7367f0, #d4d1fa );
     position: absolute;
-    right: 0;
-    top: 130px;
+    right: -200px;
+    top: 0;
+    padding: 15px;
+    transition: all .5s
+ }
+
+ .aside-open {
+  right: 0;
  }
 
 .side-header {
-    text-align: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: right;
+  align-items: center;
+  grid-gap: 10px;
+  color: var(--main-color)
+ }
+
+ .side-header img {
+  width: 40px;
+ }
+
+ .side-header p {
+  font-size: 22px;
+  padding-right: 35px;
+  cursor: pointer;
  }
 
  .side-links {
-  width: 250px;
+  padding: 15px;
  }
 
- .side-links ul {
-  width: 250px;
+ .links-title {
+  font-size: 14px;
+  color: var(--link--title-color);
+  margin-bottom: 10px
  }
 
-  .side-links li {
-  list-style: none;
-  text-align: right;
-  cursor: pointer;
-  padding: 5px;
- }
-
- .side-links a:hover, .side-links p:hover {
+ .sub-links {
   padding-right: 10px;
  }
 
- .side-links a{
+ .sub-links p , .sub-links a {
+  color: var(--heading-color);
+  cursor: pointer;
+ }
+
+ .sub-links p i:last-child {
+  padding: 0 39px 0 0;
+  font-size: 12px;
+  transition: transform .5s
+ }
+
+ .side-links .side-part:first-child .sub-links p i:last-child {
+  padding: 0 48px 0 0
+ }
+
+ .side-links ul {
+  width: 213px;
+ }
+
+  .side-links li {
+    list-style: none;
+    text-align: right;
+    cursor: pointer;
+    padding: 5px;
+ }
+
+ .side-links a:hover, {
+  padding-right: 15px;
+ }
+
+ .side-links a {
     display: block;
     text-decoration: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 5px 0 ;
     border-radius: 4px;
-    color: #262626;
     transition: padding .3s
  }
 
- .side-links p {
-    cursor: pointer;
-    padding: 5px;
-    transition: padding .3s
+ .dash-side-nav p {
+    background-image: linear-gradient(to right, #d4d1fa, #7367f0);
+    font-weight: bold;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px
  }
 
  .side-links i {
@@ -233,27 +300,24 @@ aside {
  }
 
  .links-container {
-  height: 0;
+  height: 0px;
   overflow: hidden;
-  transition: height .5s
+  transition: all .5s
  }
 
  .nav-link i {
-  font-size: 10px
+  font-size: 13px
  }
 
  .nav-link a {
-  padding: 5px 30px;
-  color: #404040;
+  font-size: 15px;
+  padding: 5px 15px;
+  color: #808080;
   transition: padding .3s
  }
 
  .nav-link a:hover {
-  padding-right: 35px;
- }
-
- .open {
-  height: 90px;
+  padding-right: 25px;
  }
 
 .users-container table {
@@ -732,6 +796,10 @@ footer a {
 
   .p-h-1 {
     padding: 10px
+  }
+
+  .p-h-2 {
+    padding: 25px
   }
 
   .m-h {

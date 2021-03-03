@@ -8,7 +8,7 @@ import UsersList from "./UsersList";
 const AdminDashboard = (props) => {
   return (
     <div className="dash-container">
-      <div className="dash-content ">
+      <div className="dash-content " id="dash-content">
         <DashboardHeader />
         <Switch>
           <Route exact path="/dashboard">
@@ -19,7 +19,7 @@ const AdminDashboard = (props) => {
           </Route>
         </Switch>
       </div>
-      <aside>
+      <aside id="aside">
         <AdminSideNav />
       </aside>
     </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import loginLogo from '../../image/login.svg';
+import Header from '../Header';
 import { connect } from 'react-redux';
 import { loginRequest } from '../../../Redux';
 import {API} from '../Api';
@@ -36,6 +37,8 @@ const Login = (props) => {
   }
 
   return (
+    <div className="main-content">
+    <Header />
     <div className="account container p-h mt-h-2">
       <div>
         <img src={loginLogo} />
@@ -62,6 +65,7 @@ const Login = (props) => {
           <Link to="/register">ثبت نام کنید!</Link>
         </div>
       </div>
+    </div>
     </div>
   )
 }
