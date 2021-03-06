@@ -28,7 +28,6 @@ const App = (props) => {
              {props.role === 1 ? <AdminDashboard /> : <UserDashboard />}
             </Route>
           </Switch>
-          <Footer />
       </Router>  
     </div>
   );

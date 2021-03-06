@@ -11,18 +11,22 @@ const AdminSideNav = (props) => {
 
   const showHandler = (e) => {
     let childNum = e.target.nextSibling.children.length;
-    if (e.target.nextSibling.style.height == "0px") {
+    if (e.target.nextSibling.style.height === "0px") {
       e.target.nextSibling.style.height = `${childNum * 45}px`;
       e.target.children[1].style.transform = "rotateX(180deg)"
     } else {
-      e.target.nextSibling.style.height = 0;
+      e.target.nextSibling.style.height = "0px";
       e.target.children[1].style.transform = "rotateX(0deg)"
     }
   };
 
   const openHandler = () => {
     document.getElementById("aside").classList.toggle("aside-open");
-    document.getElementById("dash-content").classList.toggle("dash-content-collapse")
+    document.getElementById("dash-content").classList.toggle("dash-content-collapse");
+    document.getElementById("side-links").classList.toggle("dash-open");
+    document.getElementById("dash-side-nav").classList.toggle("dash-open");
+    document.getElementById("hidden-links").classList.toggle("hidden");
+
   }
 
   const logOut = () => {
@@ -39,10 +43,10 @@ const AdminSideNav = (props) => {
         <h2>پرسونالوژی</h2>
         <img src={logo} alt="logo" />
       </div>
-      <div className="dash-side-nav rtl">
+      <div className="dash-side-nav rtl" id="dash-side-nav">
         <p><i className="fas fa-home"></i> پیشخوان</p>
       </div>
-      <div className="side-links rtl">
+      <div className="side-links rtl" id="side-links">
         <div className="side-part mt-h-1">
           <p className="links-title">ناحیه کاربری</p>
           <div className="sub-links">
@@ -87,6 +91,15 @@ const AdminSideNav = (props) => {
             <Link to={`/`} onClick={logOut}><i className="fas fa-sign-out-alt"></i> خروج</Link>
           </div>        
         </div>
+      </div>
+      <div className="hidden-links rtl" id="hidden-links">
+        <p><i className="fas fa-home"></i></p>
+        <p><i className="fas fa-user-alt"></i></p>
+        <p><i className="fas fa-shield-alt"></i></p>
+        <p><i className="fas fa-list-ul"></i></p>
+        <p><i className="fas fa-shopping-cart"></i></p>
+        <p><i className="fas fa-cog"></i></p>
+        <p><i className="fas fa-sign-out-alt"></i></p>
       </div>
     </div>
   );

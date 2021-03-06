@@ -5,6 +5,7 @@ import person from "../image/person.jpg";
 const DashboardHeader = (props) => {
   return (
     <div className="dash-header p-h-2">
+        <div className="header-container">
         <div className="dash-header-info">
             <img src={person} alt="person" />
             <div>
@@ -17,6 +18,7 @@ const DashboardHeader = (props) => {
         </div>
         <div>
             <p><i class="far fa-envelope"></i></p>
+        </div>
         </div>
     </div>
   )

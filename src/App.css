@@ -3,7 +3,7 @@
   --heading-color: #666666;
   --main-color: #7367f0;
   --link-hover: orange;
-  --light: #f6f6f6;
+  --light: #f8f8f8;
 }
 
 * {
@@ -16,7 +16,7 @@ body {
   background-color: var(--light);
   font-family: 'Vazir';
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .App {
@@ -163,13 +163,18 @@ header {
   width: calc(100% - 270px)
  }
 
-.dash-header {
+.header-container {
   display: grid;
   grid-template-columns: 300px 100px;
   justify-content: space-between;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 6px;
+  box-shadow: 0px 2px 20px 0px rgba(204, 204, 204, .8)
+
 }
 
-.dash-header i {
+.header-container i {
   font-size: 20px;
   color: var(--heading-color)
 }
@@ -181,12 +186,16 @@ header {
   justify-content: space-evenly;
 }
 
+.dash-header-info div {
+  direction: rtl
+}
+
 .dash-header img {
   width: 50px;
   border-radius: 50%;
 }
 
-.dash-header div:last-child {
+.header-container div:last-child {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -201,17 +210,39 @@ header {
 }
 
 aside {
-    width: 270px;
+    width: 70px;
     min-height: 100vh;
+    background-color: #fff;
     position: absolute;
-    right: -200px;
+    right: 0px;
     top: 0;
     padding: 15px;
-    transition: all .5s
+    transition: all .5s;
+    overflow: hidden;
+ }
+
+ aside:hover {
+  width: 270px;
+ }
+
+ aside:hover .side-links {
+   opacity: 1
+ }
+
+ aside:hover .hidden-links {
+  display: none;
+ }
+
+  aside:hover .dash-side-nav {
+   opacity: 1
+ }
+
+ .side-nav {
+  position: relative;
  }
 
  .aside-open {
-  right: 0;
+  width: 270px;
  }
 
 .side-header {
@@ -224,7 +255,7 @@ aside {
  }
 
  .side-header img {
-  width: 40px;
+  width: 50px;
  }
 
  .side-header p {
@@ -233,9 +264,25 @@ aside {
   cursor: pointer;
  }
 
+ .dash-side-nav {
+  opacity: 0;
+  transition-delay: .1s
+ }
+
  .side-links {
   padding: 15px;
+  opacity: 0;
+  transition-delay: .1s
  }
+
+.dash-open {
+  opacity: 1
+ }
+
+.hidden {
+  display: none;
+ }
+
 
  .links-title {
   font-size: 14px;
@@ -247,9 +294,20 @@ aside {
   padding-right: 10px;
  }
 
- .sub-links p , .sub-links a {
+ .sub-links p , .sub-links a , .hidden-links p{
   color: var(--heading-color);
   cursor: pointer;
+ }
+
+ .hidden-links {
+  width: 70px;
+  position: absolute;
+  right: 0;
+  top: 88px;
+ }
+
+ .hidden-links p {
+  padding: 10px;
  }
 
  .sub-links p i:last-child {
@@ -290,7 +348,7 @@ aside {
     background-image: linear-gradient(to right, #d4d1fa, #7367f0);
     font-weight: bold;
     color: #fff;
-    padding: 8px;
+    padding: 8px 10px 8px 8px;
     border-radius: 4px
  }
 

@@ -13,7 +13,7 @@ const Header = (props) => {
 
   return (
      <header>
-       <div className="header-container p-h container">
+       <div className="p-h container">
             <div className="logo">
                 <Link to="/" onClick={logOut}><img src={logo} alt="logo" /></Link>
             </div>     
