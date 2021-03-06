@@ -25,7 +25,7 @@ const App = (props) => {
                <Register />
             </Route>
             <Route path="/dashboard">
-             {props.role === 1 ? <AdminDashboard /> : <UserDashboard />}
+             {props.status === false ? <Redirect to="/" /> : props.role === 1 ? <AdminDashboard /> : <UserDashboard />}
             </Route>
           </Switch>
       </Router>  

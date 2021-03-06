@@ -17,7 +17,7 @@ const UserDashboard = (props) => {
 
   return (
             <div className="dash-container">
-                <div className="dashContent container">
+                <div className="dash-content" id="dash-content">
                     <DashboardHeader />
                     <Switch>
                         <Route exact path="/dashboard">
@@ -40,7 +40,7 @@ const UserDashboard = (props) => {
                         </Route>
                    </Switch>
                 </div>
-                <aside>
+                <aside id="aside">
                     <UserSideNav />
                 </aside>
             </div>

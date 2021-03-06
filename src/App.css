@@ -203,7 +203,7 @@ header {
 
 .dash-info-container {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: auto;
   justify-content: center;
   align-items: center;
   grid-gap: 30px
@@ -320,20 +320,14 @@ aside {
   padding: 0 48px 0 0
  }
 
- .side-links ul {
-  width: 213px;
- }
-
-  .side-links li {
-    list-style: none;
-    text-align: right;
-    cursor: pointer;
-    padding: 5px;
- }
-
- .side-links a:hover, {
+ .side-links a:hover {
   padding-right: 15px;
  }
+
+ .sub-links a:hover {
+  padding-right: 15px;
+ }
+
 
  .side-links a {
     display: block;
@@ -350,6 +344,12 @@ aside {
     color: #fff;
     padding: 8px 10px 8px 8px;
     border-radius: 4px
+ }
+
+ .dash-side-nav a {
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
  }
 
  .side-links i {
@@ -450,39 +450,6 @@ aside {
   justify-content: center;
   align-items: center;
   grid-gap: 50px;
-}
-
-.test-info-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center;align-self: center;
-  grid-gap: 15px
-}
-
-.test-info-container a {
-  text-decoration: none;
-  color: #000
-}
-
-.test-info {
-  border-radius: 10px;
-  text-align: center;
-}
-
-.test-info:nth-child(odd) {
-    background-color: #ff793f;
-}
-
-.test-info:nth-child(odd) h3 {
-  background-color: #cd6133
-}
-
-.test-info:nth-child(even) {
-    background-color: #34ace0;
-}
-
-.test-info:nth-child(even) h3 {
-  background-color: #227093
 }
 
 .personal-info {
