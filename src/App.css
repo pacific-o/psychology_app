@@ -219,6 +219,7 @@ aside {
     padding: 15px;
     transition: all .5s;
     overflow: hidden;
+    box-shadow: 0 0 15px 0 rgba(0,0,0,.05)
  }
 
  aside:hover {
@@ -338,8 +339,12 @@ aside {
     transition: padding .3s
  }
 
+ .sub-links a {
+  padding-right: 10px
+ }
+
  .dash-side-nav p {
-    background-image: linear-gradient(to right, #d4d1fa, #7367f0);
+    background-image: linear-gradient(to right, #a9a2f6, #7367f0);
     font-weight: bold;
     color: #fff;
     padding: 8px 10px 8px 8px;
@@ -363,6 +368,10 @@ aside {
   transition: all .5s
  }
 
+ .links-container li {
+  padding: 5px 0
+ }
+
  .nav-link i {
   font-size: 13px
  }
@@ -378,54 +387,139 @@ aside {
   padding-right: 25px;
  }
 
+ .filter-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  grid-gap: 20px;
+ }
+
+ .filter-container div:first-child {
+  grid-column: 1/4;
+  text-align: right;
+  margin-bottom: 20px
+ }
+
+ .filter-container div label {
+  display: block;
+  direction: rtl;
+  font-size: 12px;
+  color: var(--link--title-color);
+  margin-bottom: 5px
+ }
+
+ .filter-container div select {
+  width: 100%;
+  direction: rtl;
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  color: var(--link--title-color);
+  background-color: #fff;
+ }
+
+
+ .users-container, .filter-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 20px 0px rgba(204, 204, 204, .8)
+ }
+
 .users-container table {
   width: 100%;
-  border-spacing: 2px 15px;
+  border-collapse: collapse;
+}
+
+.users-container table caption {
+  text-align: right;
+  font-weight: bold;
+  margin-bottom: 30px
+}
+
+.users-container table thead th {
+  border-top: 1px solid #f2f2f2; 
+  border-bottom: 2px solid #e6e6e6;
+}
+
+.users-container table tbody td {
+  border-bottom: 1px solid #f2f2f2;
 }
 
 .users-container table th, td {
-  border: 2px solid black;
-  border-radius: 4px;
-  border-collapse: collapse;
+  padding: 20px 0px;
   text-align: center;
 }
 
-.users-container table th {
-  background-color: #d4d1fa
+.users-container table button {
+  width: 100%;
+  border-style: none;
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
 }
 
-.users-container th, td {
-  padding: 10px 5px;
+.users-container table tbody tr td:first-child button {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  background-color: #EA5455
 }
+
+.users-container table tbody tr td:nth-child(2) button {
+  background-color: #00CFE8
+}
+
+
+.users-container table tbody tr td:nth-child(3) button {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background-color: #7367F0
+}
+
 
 .hidden-user-info , .delete-confirmation {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(#7367f0, #d4d1fa );
-  opacity: .95;
-  z-index: 100;
-  display: flex;
+  background-color: rgba(0, 0, 0, .7);
+  z-index: -1;
   justify-content: center;
   align-items: center;
-  display: none;
+  opacity: 0;
+}
+
+.user-content, .delete-confirmation div {
+  background-color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 15px;
+  opacity: 0;
+  margin-top: -80px;
+  transition: all .5s;
 }
 
 .show-info {
-  display: flex;
-  flex-direction: column;
+  opacity: 1;
+  z-index: 100;
+}
+
+.show-info .user-content, .show-info.delete-confirmation div  {
+  opacity: 1;
+  margin-top: 0px;
 }
 
 .hidden-user-info button {
   border-style: none;
   border-radius: 4px;
-  background-color: #d4d1fa;
+  background-color: var(--main-color);
   padding: 10px 40px;
-  margin-top: 50px
+  color: #fff;
 }
 
 .delete-confirmation button {
@@ -433,7 +527,7 @@ aside {
   border-style: none;
   border-radius: 4px;
   padding: 10px 40px;
-  margin-top: 50px
+  margin-top: 30px
 }
 
 .user-info-container {
@@ -441,7 +535,6 @@ aside {
   grid-template-columns: auto;
   justify-content: center;
   align-items: center;
-  grid-gap: 50px;
 }
 
 .row {
@@ -449,7 +542,7 @@ aside {
   grid-template-columns: repeat(3,1fr);
   justify-content: center;
   align-items: center;
-  grid-gap: 50px;
+  grid-gap: 10px;
 }
 
 .personal-info {

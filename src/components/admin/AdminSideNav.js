@@ -51,15 +51,15 @@ const AdminSideNav = (props) => {
           <p className="links-title">ناحیه کاربری</p>
           <div className="sub-links">
             <p onClick={showHandler}><i className="fas fa-user-alt"></i> مدیریت کاربران      <i className="fas fa-chevron-down"></i></p>
-            <ul className="links-container">
+            <ul className="links-container" style={{height: "0px"}}>
               <li className="nav-link">
-                <NavLink to={`/dashboard/UsersList`} activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage:"linear-gradient(to right, #d4d1fa, #7367f0)",}}><i className="fas fa-users"></i> لیست کاربران </NavLink>
+                <NavLink to={`/dashboard/UsersList`} activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage:"linear-gradient(to right, #a9a2f6, #7367f0)",}}><i className="fas fa-users"></i> لیست کاربران </NavLink>
               </li>
               <li className="nav-link">
-                <NavLink to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage:"linear-gradient(to right, #d4d1fa, #7367f0)",}}> <i className="fas fa-user-plus"></i> کاربر جدید</NavLink>
+                <NavLink to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage:"linear-gradient(to right, #a9a2f6, #7367f0)",}}> <i className="fas fa-user-plus"></i> کاربر جدید</NavLink>
               </li>
               <li className="nav-link">
-                <NavLink to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage:"linear-gradient(to right, #d4d1fa, #7367f0)",}}><i className="fas fa-shield-alt"></i> سطوح دسترسی</NavLink>
+                <NavLink to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage:"linear-gradient(to right, #a9a2f6, #7367f0)",}}><i className="fas fa-shield-alt"></i> سطوح دسترسی</NavLink>
               </li>
             </ul>
           </div>
@@ -68,12 +68,12 @@ const AdminSideNav = (props) => {
           <p className="links-title">ناحیه آزمون ها</p>
           <div className="sub-links">
             <p onClick={showHandler}><i className="fas fa-file-alt"></i> مدیریت آزمون ها <i className="fas fa-chevron-down"></i></p>
-            <ul className="links-container">
+            <ul className="links-container" style={{height: "0px"}}>
               <li className="nav-link">
-                <NavLink to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage:"linear-gradient(to right, #d4d1fa, #7367f0)",}}><i className="fas fa-list-ul"></i> لیست آزمون ها</NavLink>
+                <NavLink to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage:"linear-gradient(to right, #a9a2f6, #7367f0)",}}><i className="fas fa-list-ul"></i> لیست آزمون ها</NavLink>
               </li>
               <li className="nav-link">
-                <NavLink to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage:"linear-gradient(to right, #d4d1fa, #7367f0)",}}><i className="far fa-check-square"></i> آزمون جدید</NavLink>
+                <NavLink to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage:"linear-gradient(to right, #a9a2f6, #7367f0)",}}><i className="far fa-check-square"></i> آزمون جدید</NavLink>
               </li>
             </ul>
           </div>
@@ -81,13 +81,13 @@ const AdminSideNav = (props) => {
         <div className="side-part mt-h-1">
           <p className="links-title">امور مالی</p>
           <div className="sub-links">
-            <NavLink to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage:"linear-gradient(to right, #d4d1fa, #7367f0)",}}><i className="fas fa-shopping-cart"></i> تراکنش ها</NavLink>
+            <NavLink to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage:"linear-gradient(to right, #a9a2f6, #7367f0)",}}><i className="fas fa-shopping-cart"></i> تراکنش ها</NavLink>
           </div>
         </div>
         <div className="side-part mt-h-1">
           <p className="links-title">دیگر امکانات</p>
           <div className="sub-links">
-            <NavLink to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage:"linear-gradient(to right, #d4d1fa, #7367f0)",}}><i className="fas fa-cog"></i> تنضیمات</NavLink>
+            <NavLink to activeStyle={{fontWeight: "bold",color: "#d4d1fa",backgroundImage:"linear-gradient(to right, #a9a2f6, #7367f0)",}}><i className="fas fa-cog"></i> تنضیمات</NavLink>
             <Link to={`/`} onClick={logOut}><i className="fas fa-sign-out-alt"></i> خروج</Link>
           </div>        
         </div>

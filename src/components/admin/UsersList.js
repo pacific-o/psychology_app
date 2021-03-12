@@ -64,54 +64,73 @@ const UsersInfo = (props) => {
   return loader ? (
     <Loader />
   ) : (
-    <div className="users-container container mt-h-1">
+    <div>
+    <div className="filter-container container p-h-2">
+       <div><p>فیلترها</p></div>
+       <div>
+          <label for="gender">جنسیت:</label>
+          <select id="gender" name="gender">
+            <option value="همه">همه</option>
+            <option value="کاربر">کاربر</option>
+            <option value="کلینیک">کلینیک</option>
+            <option value="مدیریت">مدیریت</option>
+            </select>       
+       </div>
+       <div>
+          <label for="confirmation">تایید شده:</label>
+          <select id="confirmation" name="confirmation">
+            <option value="همه">همه</option>
+            <option value="بله">بله</option>
+            <option value="خیر">خیر</option>
+            </select>       
+       </div>
+       <div>
+          <label for="role">نقش:</label>
+          <select id="role" name="role">
+            <option value="همه">همه</option>
+            <option value="مرد">مرد</option>
+            <option value="زن">زن</option>
+            </select>       
+       </div>              
+    </div>
+    <div className="users-container container mt-h-2 p-h-2">
       <table>
+        <caption>لیست همه کاربران</caption>
         <thead>
           <tr>
             <th colSpan="3">ویرایش</th>
             <th>سطح کاربری</th>
+            <th>وضعیت</th>            
             <th>ایمیل</th>
+            <th>نام</th>
+            <th>#</th>
           </tr>
         </thead>
         <tbody>
           {list.map((item) => (
             <tr>
               <td>
-                <button
-                  className="btn btn-danger"
-                  id={item.id}
-                  onClick={showRemoveConfirmation}
-                >
-                  حذف
-                </button>
+                <button id={item.id} onClick={showRemoveConfirmation}>حذف</button>
               </td>
               <td>
-                <button
-                  className="btn btn-success"
-                  id={item.id}
-                  onClick={showSelected}
-                >
-                  ویرایش
-                </button>
+                <button id={item.id} onClick={showSelected}>ویرایش</button>
               </td>
               <td>
-                <button
-                  className="btn btn-info"
-                  id={item.id}
-                  onClick={selectorHandler}
-                >
-                  مشاهده
-                </button>
+                <button id={item.id} onClick={selectorHandler}>مشاهده</button>
               </td>
               <td>{item.role}</td>
+              <td>تایید شده</td>              
               <td>{item.email}</td>
+              <td>{item.name}</td>
+              <td>{item.id}</td>
             </tr>
           ))}
         </tbody>
       </table>
       <div className="hidden-user-info">
-        <form className="mt-h-2">
-          <div className="user-info-container">
+      <div className="user-content">
+        <form>
+          <div className="user-info-container p-h-2">
             <div className="row">
               <div className="rtl">
                 <label for="name">نام</label>
@@ -174,8 +193,10 @@ const UsersInfo = (props) => {
         </form>
         <button onClick={showSelected}>خروج</button>
       </div>
+      </div>
       <div className="delete-confirmation">
-        <p>آیا از حذف این کابر اطمینان داری ؟</p>
+      <div>
+        <p>آیا از حذف این کابر اطمینان دارید ؟</p>
         <div>
           <button className="btn btn-success" onClick={removeHandler}>
             بلی
@@ -185,6 +206,8 @@ const UsersInfo = (props) => {
           </button>
         </div>
       </div>
+      </div>
+    </div>
     </div>
   );
 };
